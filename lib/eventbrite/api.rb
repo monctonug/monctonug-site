@@ -6,10 +6,12 @@ module Eventbrite
     end
 
     def get_events
-      response = request("users/me/owned_events?status=live,started,ended&order_by=start_asc")
+      response = request("users/me/owned_events?status=live,started,ended")
       response["events"].map do |event|
         Event.new(event)
-      end
+      end.sort_by do |event|
+        event.start_time
+      end.reverse
     end
 
     private

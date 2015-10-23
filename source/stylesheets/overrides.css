@@ -1,7 +1,32 @@
-blockquote {
-    font-size: 1em;
+/*********************************** Layout */
+
+body {
+    margin-bottom: 60px;
 }
 
-.panel {
-    margin-bottom: 4em;
+.container {
+    max-width: 700px;
+}
+
+.navbar-default .navbar-brand {
+    color: #333;
+}
+
+
+/*********************************** Article Item */
+
+article.event {
+    margin-bottom: 60px;
+}
+
+article.event time {
+    color: #777;
+    font-weight: normal;
+}
+
+
+/*********************************** Sponsors Page */
+
+body.sponsors .page img {
+    max-width: 275px;
 }

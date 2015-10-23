@@ -27,9 +27,9 @@ module Eventbrite
       [
         start_time.strftime("%A, %e %B %Y"),
         "from",
-        start_time.strftime("%H:%M %p"),
+        start_time.strftime("%l:%M %p"),
         "to",
-        end_time.strftime("%H:%M %p"),
+        end_time.strftime("%l:%M %p"),
         "(#{timezone})"
       ].join(" ")
     end

@@ -1,41 +1,22 @@
----
-title: Moncton User Group
----
-
 <% event_list.each do |event| %>
-
-  <div class="panel <% if event.live? %>panel-primary<% else %>panel-default<% end %>">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= event.name %></h3>
+  <article class="event">
+    <div class="page-header">
+      <h2>
+        <%= event.name %>
+      </h2>
+      <time><%= event.formatted_time %></time>
     </div>
-    <div class="panel-body">
-      <blockquote>
-        <%= event.description %>
-      </blockquote>
 
-      <p>
-        <strong>When</strong>
-        <div>
-          <%= event.formatted_time %>
-        </div>
-      </p>
+    <%= event.description %>
+
+    <% if event.live? %>
 
 
-      <% if event.live? %>
-        <p>
-          <strong>Where</strong>
-          <address>
-            Venn Centre - 795 Main St. Suite 201. Moncton, NB E1C 1G2 CA
-          </address>
-        </p>
-
-        <div>
-          <a href="<%= event.url %>" target="_blank" class="btn btn-success btn-lg btn-block">
-            Register on Eventbrite
-          </a>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
+      <div>
+        <a href="<%= event.url %>" class="btn btn-success btn-lg btn-block">
+          Register on Eventbrite
+        </a>
+      </div>
+    <% end %>
+  </article>
 <% end %>

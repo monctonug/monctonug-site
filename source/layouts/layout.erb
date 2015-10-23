@@ -9,15 +9,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Use title if it's in the page YAML frontmatter -->
-    <title><%= current_page.data.title || "Moncton User Group" %></title>
+    <title><%= current_page.data.title || "Moncton Developer User Group" %></title>
 
     <%= stylesheet_link_tag "all" %>
     <%= javascript_include_tag  "all" %>
   </head>
 
   <body class="<%= page_classes %>">
+
     <div class="container">
-      <%= yield %>
+
+
+      <div class="row row-header">
+        <div class="col-md-12">
+          <div class="page-header">
+            <h1>Moncton Developer User Group <!-- <small>Subtext for header</small> --></h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8">
+          <%= yield %>
+        </div>
+
+        <div class="col-md-4">
+          <h3>Sidebar</h3>
+
+          <p>About</p>
+
+          <p>Newsletter</p>
+
+          <p>RSS feed</p>
+
+          <p>Sponsors</p>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>

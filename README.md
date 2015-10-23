@@ -1,6 +1,6 @@
-# Moncton User Group
+# Moncton Developer User Group
 
-Static site generator for the Moncton User Group site.
+Static site generator for the Moncton Developer User Group site.
 
 The goal is to have a site that is easy to maintain and that integrates with Eventbrite to provide a list of upcoming / past events. Registration takes place on the Eventbrite site.
 

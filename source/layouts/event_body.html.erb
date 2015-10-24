@@ -1,0 +1,9 @@
+<%= event.description %>
+
+<% if event.live? %>
+  <div>
+    <a href="<%= event.url %>" class="btn btn-success btn-lg btn-block">
+      Register on Eventbrite
+    </a>
+  </div>
+<% end %>

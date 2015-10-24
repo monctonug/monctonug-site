@@ -2,36 +2,38 @@ module Eventbrite
 
   class Event
 
-    def initialize(json)
-      @json = json
+    attr_reader :blob
+
+    def initialize(blob)
+      @blob = blob
     end
 
     def id
-      @json["id"]
+      @blob["id"]
     end
 
     def name
-      @json["name"]["text"]
+      @blob["name"]["text"]
     end
 
     def description
-      @json["description"]["html"]
+      @blob["description"]["html"]
     end
 
     def url
-      @json["url"]
+      @blob["url"]
     end
 
     def live?
-      @json["status"] == "live"
+      @blob["status"] == "live"
     end
 
     def created_at
-      Time.parse(@json["created"])
+      Time.parse(@blob["created"])
     end
 
     def updated_at
-      Time.parse(@json["changed"])
+      Time.parse(@blob["changed"])
     end
 
     # Monday, 30 November 2015 from 7:00 PM to 10:00 PM (AST)
@@ -47,16 +49,21 @@ module Eventbrite
     end
 
     def timezone
-      @json["start"]["timezone"]
+      @blob["start"]["timezone"]
     end
 
     def start_time
-      Time.parse(@json["start"]["local"])
+      Time.parse(@blob["start"]["local"])
     end
 
     def end_time
-      Time.parse(@json["end"]["local"])
+      Time.parse(@blob["end"]["local"])
     end
+
+    def to_blob
+      @blob.to_json
+    end
+
   end
 
 end

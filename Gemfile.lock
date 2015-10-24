@@ -7,6 +7,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.7)
     builder (3.2.2)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -66,6 +67,10 @@ GEM
       middleman-sprockets (>= 3.1.2)
       sass (>= 3.4.0, < 4.0)
       uglifier (~> 2.5)
+    middleman-blog (3.5.3)
+      addressable (~> 2.3.5)
+      middleman-core (~> 3.2)
+      tzinfo (>= 0.3.0)
     middleman-core (3.4.0)
       activesupport (~> 4.1)
       bundler (~> 1.1)
@@ -146,6 +151,7 @@ DEPENDENCIES
   builder
   dotenv
   middleman (~> 3.4.0)
+  middleman-blog
   middleman-livereload (~> 3.1.0)
   rest-client
 

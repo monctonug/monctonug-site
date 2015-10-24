@@ -15,11 +15,11 @@ body {
 
 /*********************************** Article Item */
 
-article.event {
+article {
     margin-bottom: 60px;
 }
 
-article.event time {
+article time {
     color: #777;
     font-weight: normal;
 }

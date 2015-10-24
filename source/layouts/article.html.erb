@@ -1,0 +1,26 @@
+<%#
+Layout for an article.
+
+It differentiates between regular articles and events and acts accordingly.
+%>
+
+<% event = event_for(article) %>
+<% skip_title = false unless defined?(skip_title) %>
+
+<article>
+  <div class="page-header">
+    <% unless skip_title %>
+      <h2><a href="<%= article.url %>"><%= article.title %></a></h2>
+    <% end %>
+
+    <% if event %>
+      <time><%= event.formatted_time %></time>
+    <% end %>
+  </div>
+
+  <% if event %>
+    <%= partial "layouts/event_body", locals: { event: event } %>
+  <% else %>
+    <%= article.body %>
+  <% end %>
+</article>

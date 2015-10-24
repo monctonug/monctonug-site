@@ -1,0 +1,4 @@
+<%# Blog layout to wrap articles when rendered standalone. %>
+<% wrap_layout :layout do %>
+  <%= partial "layouts/article", locals: { article: current_article } %>
+<% end %>

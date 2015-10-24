@@ -1,6 +1,5 @@
 ---
 layout: false
-index_file: "index.xml"
 ---
 
 xml.instruct!
@@ -9,20 +8,20 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   xml.title data.strings.title
   xml.subtitle ""
   xml.id data.strings.site_url
-  xml.link "href" => data.strings.site_url
-  xml.link "href" => data.strings.site_url, "rel" => "self"
-  xml.updated(event_list.first.updated_at.iso8601) unless event_list.empty?
+  xml.link "href" => URI.join(data.strings.site_url, blog.options.prefix.to_s)
+  xml.link "href" => URI.join(data.strings.site_url, current_page.path), "rel" => "self"
+  xml.updated(blog.articles.first.date.to_time.iso8601) unless blog.articles.empty?
   xml.author { xml.name data.strings.title }
 
-  event_list.each do |event|
+  blog.articles[0..10].each do |article|
     xml.entry do
-      xml.title event.name
-      xml.link "rel" => "alternate", "href" => URI.join(data.strings.site_url, "event/#{event.id}")
-      xml.id data.strings.site_url
-      xml.published event.created_at.iso8601
-      xml.updated event.updated_at.iso8601
+      xml.title article.title
+      xml.link "rel" => "alternate", "href" => URI.join(data.strings.site_url, article.url)
+      xml.id URI.join(data.strings.site_url, article.url)
+      xml.published article.date.to_time.iso8601
+      xml.updated File.mtime(article.source_file).iso8601
       xml.author { xml.name data.strings.title }
-      xml.content partial("event", locals: { event: event, skip_title: true }), "type" => "html"
+      xml.content partial("layouts/article", locals: { article: article, skip_title: true }), "type" => "html"
     end
   end
 end

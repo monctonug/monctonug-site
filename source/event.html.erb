@@ -1,0 +1,22 @@
+<% skip_title = false if skip_title.nil? %>
+
+<article class="event">
+  <div class="page-header">
+    <% unless skip_title %>
+      <h2>
+        <a href="/event/<%= event.id %>"><%= event.name %></a>
+      </h2>
+    <% end %>
+    <time><%= event.formatted_time %></time>
+  </div>
+
+  <%= event.description %>
+
+  <% if event.live? %>
+    <div>
+      <a href="<%= event.url %>" class="btn btn-success btn-lg btn-block">
+        Register on Eventbrite
+      </a>
+    </div>
+  <% end %>
+</article>

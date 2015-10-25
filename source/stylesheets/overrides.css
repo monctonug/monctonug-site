@@ -1,9 +1,5 @@
 /*********************************** Layout */
 
-body {
-    margin-bottom: 60px;
-}
-
 .container {
     max-width: 700px;
 }
@@ -14,6 +10,14 @@ body {
 
 .page-header-main {
     margin-top: 0px;
+}
+
+.navbar {
+    border-radius: 0px;
+}
+
+.navbar.navbar-footer {
+    margin: 0px;
 }
 
 

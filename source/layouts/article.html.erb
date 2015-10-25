@@ -10,7 +10,7 @@ It differentiates between regular articles and events and acts accordingly.
 <article>
   <div class="page-header page-header-main">
     <% unless skip_title %>
-      <h2><a href="<%= article.url %>"><%= article.title %></a></h2>
+      <h2><%= link_to article.title, article.url %></h2>
     <% end %>
 
     <% if event %>

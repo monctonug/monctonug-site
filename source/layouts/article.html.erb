@@ -8,7 +8,7 @@ It differentiates between regular articles and events and acts accordingly.
 <% skip_title = false unless defined?(skip_title) %>
 
 <article>
-  <div class="page-header">
+  <div class="page-header page-header-main">
     <% unless skip_title %>
       <h2><a href="<%= article.url %>"><%= article.title %></a></h2>
     <% end %>

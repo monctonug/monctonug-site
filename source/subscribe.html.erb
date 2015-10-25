@@ -1,0 +1,73 @@
+---
+title: "Newsletter"
+---
+
+<div class="page-header page-header-main">
+  <h2>Subscribe to Our RSS Feed</h2>
+</div>
+
+<p>
+  <a href="<%= data.strings.site_url %>/feed/"><%= data.strings.site_url %>/feed/</a>
+</p>
+
+
+<div class="page-header">
+  <h2>Subscribe to Our Email Newsletter</h2>
+</div>
+
+<%# implement validation / required fields %>
+<form action="http://monctonug.us2.list-manage.com/subscribe/post?u=7ea4041a6c9d883b9ee645812&amp;id=a9e49b7027"
+      method="post"
+      name="mc-embedded-subscribe-form"
+      target="_blank">
+
+  <div class="form-group">
+	  <label>Email Address</label>
+    <div class="row">
+      <div class="col-sm-9">
+        <input type="email" value="" name="EMAIL" class="email form-control">
+      </div>
+    </div>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" value="1" checked="checked" name="group[15741][1]">
+      I consent to receive emails from the <%= data.strings.title %>.
+    </label>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-4">
+	      <label>First Name</label>
+        <input type="text" value="" name="FNAME" class="form-control">
+      </div>
+
+      <div class="col-sm-4">
+	      <label>Last Name</label>
+        <input type="text" value="" name="LNAME" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Email Format</label>
+    <div>
+      <label class="radio-inline">
+        <input type="radio" value="html" name="EMAILTYPE" checked="checked"> html
+      </label>
+
+      <label class="radio-inline">
+        <input type="radio" value="text" name="EMAILTYPE"> text
+      </label>
+    </div>
+  </div>
+
+  <div style="position: absolute; left: -5000px;">
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <input type="text" name="b_7ea4041a6c9d883b9ee645812_a9e49b7027" tabindex="-1" value="">
+  </div>
+
+  <input type="submit" value="Subscribe" name="subscribe" class="btn btn-primary">
+</form>

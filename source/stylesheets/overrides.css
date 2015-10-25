@@ -4,12 +4,21 @@
     max-width: 700px;
 }
 
-.navbar-default .navbar-brand {
-    color: #333;
-}
-
 .page-header-main {
     margin-top: 0px;
+}
+
+
+/*********************************** Navbar */
+
+.navbar-default .navbar-brand {
+    color: #333;
+    padding: 0px 15px;
+}
+
+.navbar-default .navbar-brand img {
+    width: 140px;
+    margin-top: 2px;
 }
 
 .navbar {

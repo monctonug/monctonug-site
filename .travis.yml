@@ -2,6 +2,6 @@ language: ruby
 script: bash ./deploy.sh
 env:
   global:
-    - GH_REF: github.com/monctonug/monctonug-site.git
+    - GH_REF: github.com/monctonug/monctonug.github.io.git
 rvm:
   - 2.2.3

@@ -18,45 +18,51 @@
   </head>
 
   <body class="<%= page_classes %>">
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <% link_to url_for("/index.html"), class: "navbar-brand" do %>
-            <%= image_tag "logo.png", alt: data.strings.title %>
-          <% end %>
-        </div>
+    <div class="wrapper-top">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <% link_to url_for("/index.html"), class: "navbar-brand" do %>
+              <%= image_tag "logo.png", alt: data.strings.title %>
+            <% end %>
+          </div>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "About", "/about.html" %></li>
-            <li><%= link_to "Sponsors", "/sponsors.html" %></li>
-            <li><%= link_to "Subscribe", "/subscribe.html" %></li>
-          </ul>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "About", "/about.html" %></li>
+              <li><%= link_to "Sponsors", "/sponsors.html" %></li>
+              <li><%= link_to "Subscribe", "/subscribe.html" %></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+      <div class="container page">
+        <div class="row">
+          <div class="col-xs-12">
+            <%= yield %>
+          </div>
         </div>
       </div>
-    </nav>
 
-    <div class="container page">
-      <div class="row">
-        <div class="col-xs-12">
-          <%= yield %>
-        </div>
-      </div>
+      <div class="wrapper-footer-push"></div>
     </div>
 
-    <nav class="navbar navbar-inverse navbar-footer">
-      <div class="container">
-        <div class="navbar-text">
-          Copyright &copy; 2015 <%= data.strings.title %>
+    <div class="wrapper-footer">
+      <nav class="navbar navbar-inverse navbar-footer">
+        <div class="container">
+          <div class="navbar-text">
+            Copyright &copy; 2015 <%= data.strings.title %>
+          </div>
         </div>
-      </div>
-    </nav>
-
+      </nav>
+    </div>
   </body>
 </html>

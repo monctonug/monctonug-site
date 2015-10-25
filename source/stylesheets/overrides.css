@@ -1,5 +1,9 @@
 /*********************************** Layout */
 
+html, body {
+    height: 100%;
+}
+
 .container {
     max-width: 700px;
 }
@@ -7,6 +11,19 @@
 .page-header-main {
     margin-top: 0px;
 }
+
+.wrapper-top {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -50px; /* the bottom margin is the negative value of the footer's height */
+    padding-bottom: 50px;
+}
+
+.wrapper-footer, .wrapper-footer-push {
+    height: 50px; /* .push must be the same height as .footer */
+}
+
 
 
 /*********************************** Navbar */

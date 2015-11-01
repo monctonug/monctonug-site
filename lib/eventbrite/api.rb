@@ -1,3 +1,5 @@
+require "uri"
+
 module Eventbrite
   class API
 
@@ -6,10 +8,18 @@ module Eventbrite
     end
 
     def get_events
-      response = request("users/me/owned_events?status=live,started,ended")
-      response["events"].map do |event|
-        Event.new(event)
-      end.sort_by do |event|
+      events = [ ]
+      page = page_count = 1
+
+      while page <= page_count
+        response = request("users/me/owned_events?page=#{page}&status=live,started,ended")
+        events += response["events"].map{|event| Event.new(event) }
+
+        page += 1
+        page_count = response["pagination"]["page_count"]
+      end
+
+      return events.sort_by do |event|
         event.start_time
       end.reverse
     end
@@ -17,12 +27,13 @@ module Eventbrite
     private
 
     def request(endpoint)
-      response = RestClient.get("#{root_url}/#{endpoint}", headers)
+      url = URI.join(root_url, endpoint).to_s
+      response = RestClient.get(url, headers)
       return JSON.parse(response.body)
     end
 
     def root_url
-      "https://www.eventbriteapi.com/v3"
+      "https://www.eventbriteapi.com/v3/"
     end
 
     def headers

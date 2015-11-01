@@ -8,12 +8,13 @@ Bundler.require
 Dotenv.load
 
 def article_source_path_for(event)
-  d = event.created_at
-  "source/articles/#{d.year}-#{d.month}-#{d.day}-#{event.id}.html.erb"
+  d = event.created_at.strftime("%Y-%m-%d")
+  "source/articles/#{d}-#{event.id}.html.erb"
 end
 
 
 Eventbrite::API.new.get_events.each do |event|
+  puts "#{event.id}: #{event.name}"
   path = article_source_path_for(event)
 
   frontmatter = { }

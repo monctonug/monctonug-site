@@ -33,4 +33,6 @@ Eventbrite::API.new.get_events.each do |event|
     f.puts frontmatter.to_yaml
     f.puts "---"
   end
+
+  IO.write(path, IO.read(path).gsub(/\s+\n/, "\n"))
 end

@@ -64,3 +64,13 @@ article time {
 body.sponsors .page img {
     max-width: 275px;
 }
+
+
+/*********************************** Index Page */
+ul.no-bullets {
+    padding-left: 0px;
+}
+
+ul.no-bullets li {
+    list-style-type: none;
+}

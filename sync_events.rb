@@ -8,7 +8,7 @@ Bundler.require
 Dotenv.load
 
 def article_source_path_for(event)
-  d = event.created_at.strftime("%Y-%m-%d")
+  d = event.start_time.strftime("%Y-%m-%d")
   "source/articles/#{d}-#{event.id}.html.erb"
 end
 
@@ -25,7 +25,7 @@ Eventbrite::API.new.get_events.each do |event|
 
   frontmatter.merge!({
                        "title" => event.name,
-                       "date" => event.created_at.strftime("%Y-%m-%d %H:%M UTC"),
+                       "date" => event.start_time.strftime("%Y-%m-%d %H:%M UTC"),
                        "eventbrite" => event.blob
                      })
 

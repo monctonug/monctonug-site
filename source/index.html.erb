@@ -1,3 +1,23 @@
-<% blog.articles.each do |article| %>
+---
+full_article_count: 5
+---
+
+<% blog.articles[0...current_page.data.full_article_count].each do |article| %>
   <%= partial "layouts/article", locals: { article: article } %>
+<% end %>
+
+
+<% blog.articles[current_page.data.full_article_count..-1].group_by{|a| a.date.year }.each do |year, articles| %>
+  <h3><%= year %></h3>
+
+  <ul class="no-bullets">
+    <% articles.each do |article| %>
+      <% event = event_for(article) %>
+      <li>
+        <span class="text-muted"><%= event.start_time.strftime("%b %e, %Y") %></span>
+        &mdash;
+        <%= link_to article.title, article.url %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>

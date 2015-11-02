@@ -7,3 +7,5 @@ gem "middleman-blog"
 gem "dotenv"
 gem "rest-client"
 gem "builder"
+
+gem "nokogiri"

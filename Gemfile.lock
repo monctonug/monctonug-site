@@ -153,6 +153,7 @@ DEPENDENCIES
   middleman (~> 3.4.0)
   middleman-blog
   middleman-livereload (~> 3.1.0)
+  nokogiri
   rest-client
 
 BUNDLED WITH

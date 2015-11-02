@@ -17,7 +17,21 @@ module Eventbrite
     end
 
     def description
-      @blob["description"]["html"]
+      desc = @blob["description"]["html"]
+
+      doc = Nokogiri::HTML.fragment(desc)
+
+      doc.css("p > br").remove
+
+      doc.css("*").remove_attr("style")
+
+      doc.css("font").each do |node|
+        node.attributes.keys.each do |attr|
+          node.remove_attribute(attr)
+        end
+      end
+
+      doc.to_html
     end
 
     def url

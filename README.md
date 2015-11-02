@@ -2,41 +2,44 @@
 
 Static site generator for the Moncton Developer User Group site.
 
-The goal is to have a site that is easy to maintain and that integrates with Eventbrite to provide a list of upcoming / past events. Registration takes place on the Eventbrite site.
+This is a [Middleman](https://middlemanapp.com/) application deployed to GitHub Pages. It's set up as an Organization page living at [https://github.com/monctonug/monctonug.github.io](https://github.com/monctonug/monctonug.github.io)
 
-## Configuration
 
-Configuration can be done with environment variables.
+### Dependencies
 
-We use a Personal Token, see the [Eventbrite documentation](https://www.eventbrite.com/developer/v3/reference/authentication/#ebapi-personal-tokens) for more details. It should be set in the `EVENTBRITE_OAUTH_TOKEN` environment variable.
+* ruby: a reasonably recent version
+* bundler: `gem install bundler`
+* gems: `bundle install`
 
-## Getting Started
 
-This is a [Middleman](https://middlemanapp.com/) application.
-
-#### Install Dependencies
-
-It requires ruby to be installed, the most recent the better.
-
-You can then install project dependencies by running:
-
-```
-gem install bundler
-bundle
-```
-
-#### Configuration
-
-While developing, it's easier to load environment using a `.env` file (see also `.env.template`).
-
-#### Running (development)
+### Running in Development Mode
 
 ```
 bundle exec middleman server
 ```
 
-#### Building
 
-```
-bundle exec middleman build
-```
+### Configuring Eventbrite Sync
+
+Configuration can be done with environment variables. We use a Personal Token set in the `EVENTBRITE_OAUTH_TOKEN` environment variable. See the [Eventbrite documentation](https://www.eventbrite.com/developer/v3/reference/authentication/#ebapi-personal-tokens) for more details.
+
+This project uses [dotenv](https://github.com/bkeepers/dotenv) to manage environment variables in development mode (in the `.env` file).
+
+
+### Adding Slides
+
+We host slides on [Speaker Deck](https://speakerdeck.com/): [https://speakerdeck.com/monctonug](https://speakerdeck.com/monctonug)
+
+To embed slides on a post, add `speakerdeck_id: {ID}` to the [Frontmatter](https://middlemanapp.com/basics/frontmatter/). The ID can be extracted from the embed code snippet.
+
+
+### Syncing Events
+
+Syncing events with Eventbrite is done by running `bundle exec ruby sync.rb`
+
+A blog article will be generated in `./source/articles/` for each event found. The event data is serialized to YAML and stored in the article's Frontmatter.
+
+
+### Deploying
+
+Pushing your changes up to GitHub (this repo) will trigger a [Travis CI](https://travis-ci.org/monctonug/monctonug-site) build that uses `./deploy.sh` to build and overwrite the static site at [monctonug/monctonug.github.io](https://github.com/monctonug/monctonug.github.io).

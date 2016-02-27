@@ -11,6 +11,7 @@ activate :blog do |blog|
   blog.permalink = "{year}/{month}/{day}/{title}"
   blog.default_extension = ".md"
   blog.layout = "layouts/article_layout"
+  blog.publish_future_dated = true
 end
 
 activate  :directory_indexes

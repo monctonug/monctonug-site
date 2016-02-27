@@ -21,8 +21,6 @@ module Eventbrite
 
       doc = Nokogiri::HTML.fragment(desc)
 
-      doc.css("p > br").remove
-
       doc.css("*").remove_attr("style")
 
       doc.css("font").each do |node|

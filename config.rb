@@ -1,6 +1,7 @@
 Dotenv.load
 
-require_relative "lib/eventbrite"
+$:.unshift File.dirname(__FILE__)
+require "lib/eventbrite"
 
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'

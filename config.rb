@@ -16,7 +16,6 @@ activate :blog do |blog|
 end
 
 activate  :directory_indexes
-proxy "/feed/", "/feed.xml"
 
 configure :build do
   activate :minify_css

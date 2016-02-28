@@ -7,7 +7,7 @@ title: "Newsletter"
 </div>
 
 <p>
-  <% feed_url = URI.join(data.strings.site_url, url_for("/feed/")) %>
+  <% feed_url = URI.join(data.strings.site_url, url_for("/feed.xml")) %>
   <%= link_to feed_url, feed_url %>
 </p>
 

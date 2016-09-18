@@ -1,7 +1,8 @@
 #!/bin/bash
 
 set -e
-git pull origin master
+
+bundle install
 
 ./sync.rb
 
@@ -17,5 +18,4 @@ if [[ $STATUS != 0 ]]; then
     git push origin master
 fi
 
-bundle install
 bundle exec middleman build

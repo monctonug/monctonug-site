@@ -19,18 +19,12 @@ It differentiates between regular articles and events and acts accordingly.
   </div>
 
   <% if article.data.speakerdeck_id %>
-    <p>
-      <script async
-              class="speakerdeck-embed"
-              data-id="<%= article.data.speakerdeck_id %>"
-              data-ratio="1.33333333333333"
-              src="//speakerdeck.com/assets/embed.js"></script>
-    </p>
+    <%= partial "layouts/speakerdeck", locals: { id: article.data.speakerdeck_id } %>
   <% end %>
+
+  <%= article.body %>
 
   <% if event %>
     <%= partial "layouts/event_body", locals: { event: event } %>
-  <% else %>
-    <%= article.body %>
   <% end %>
 </article>

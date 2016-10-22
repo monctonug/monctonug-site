@@ -38,8 +38,3 @@ To embed slides on a post, add `speakerdeck_id: {ID}` to the [Frontmatter](https
 Syncing events with Eventbrite is done by running `bundle exec ruby sync.rb`
 
 A blog article will be generated in `./source/articles/` for each event found. The event data is serialized to YAML and stored in the article's Frontmatter.
-
-
-### Deploying
-
-Pushing your changes up to GitHub (this repo) will trigger a [Travis CI](https://travis-ci.org/monctonug/monctonug-site) build that uses `./deploy.sh` to build and overwrite the static site at [monctonug/monctonug.github.io](https://github.com/monctonug/monctonug.github.io).

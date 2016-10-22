@@ -22,9 +22,15 @@ It differentiates between regular articles and events and acts accordingly.
     <%= partial "layouts/speakerdeck", locals: { id: article.data.speakerdeck_id } %>
   <% end %>
 
-  <%= article.body %>
+  <% if article.data.speakerdeck_ids %>
+    <% article.data.speakerdeck_ids.each do |id| %>
+      <%= partial "layouts/speakerdeck", locals: { id: id } %>
+    <% end %>
+  <% end %>
 
   <% if event %>
     <%= partial "layouts/event_body", locals: { event: event } %>
+  <% else %>
+    <%= article.body %>
   <% end %>
 </article>

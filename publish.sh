@@ -18,4 +18,4 @@ if [[ $STATUS != 0 ]]; then
     git push origin master
 fi
 
-bundle exec middleman build
+bundle exec middleman build --verbose

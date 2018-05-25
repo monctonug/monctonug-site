@@ -4,7 +4,7 @@ set -e
 
 bundle install
 
-#./sync.rb
+./sync.rb
 
 git add .
 

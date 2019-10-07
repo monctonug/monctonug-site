@@ -16,7 +16,13 @@ module Eventbrite
       @blob["name"]["text"]
     end
 
+    def description=(description)
+      @_description = description
+    end
+
     def description
+      return @_description unless @_description.nil?
+
       desc = @blob["description"]["html"]
 
       doc = Nokogiri::HTML.fragment(desc)

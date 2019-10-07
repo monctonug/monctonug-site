@@ -1,3 +1,4 @@
+require "json"
 require "uri"
 
 module Eventbrite
@@ -13,7 +14,17 @@ module Eventbrite
 
       while page <= page_count
         response = request("users/me/owned_events?page=#{page}&status=live,started,ended")
-        events += response["events"].map{|event| Event.new(event) }
+        events += response["events"].map do |raw|
+          event = Event.new(raw)
+
+          # Fetch description from new API for newer events that use separate APIs
+          if event.name.downcase == event.description.downcase
+            content = request("events/#{event.id}/structured_content")
+            event.description = content["modules"][0]["data"]["body"]["text"]
+          end
+
+          event
+        end
 
         page += 1
         page_count = response["pagination"]["page_count"]

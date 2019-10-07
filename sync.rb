@@ -14,7 +14,6 @@ def article_source_path_for(event)
   "source/articles/#{d}-#{event.id}.html.erb"
 end
 
-
 Eventbrite::API.new.get_events.each do |event|
   puts "#{event.id}: #{event.name}"
   path = article_source_path_for(event)
@@ -28,7 +27,8 @@ Eventbrite::API.new.get_events.each do |event|
   frontmatter.merge!({
                        "title" => event.name,
                        "date" => event.start_time.strftime("%Y-%m-%d %H:%M UTC"),
-                       "eventbrite" => event.blob
+                       "eventbrite" => event.blob,
+                       "description" => event.description
                      })
 
   File.open(path, "w") do |f|

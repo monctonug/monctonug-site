@@ -28,8 +28,9 @@ It differentiates between regular articles and events and acts accordingly.
     <% end %>
   <% end %>
 
+  <%= article.body %>
+
   <% if event %>
     <%= partial "layouts/event_body", locals: { event: event, description: article.data.description } %>
   <% end %>
-  <%= article.body %>
 </article>

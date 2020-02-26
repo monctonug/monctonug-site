@@ -19,9 +19,11 @@ Eventbrite::API.new.get_events.each do |event|
   path = article_source_path_for(event)
 
   frontmatter = { }
+  content = ""
 
   if File.exist?(path)
     frontmatter = YAML.load( IO.read(path) )
+    content = IO.read(path).gsub(/.*---/m, "")
   end
 
   frontmatter.merge!({

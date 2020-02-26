@@ -33,8 +33,6 @@ Eventbrite::API.new.get_events.each do |event|
                        "description" => event.description
                      })
 
-  content = IO.read(path).gsub(/.*---/m, "")
-
   File.open(path, "w") do |f|
     f.puts frontmatter.to_yaml
     f.puts "---"
